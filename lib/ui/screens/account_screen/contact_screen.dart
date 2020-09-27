@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:resellapp/services/contact_info_text_fields.dart';
+import 'package:resellapp/models/contact_info_text_fields.dart';
 
 class ContactScreen extends StatefulWidget {
 

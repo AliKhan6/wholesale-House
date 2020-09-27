@@ -4,6 +4,8 @@ import 'package:resellapp/ui/screens/account_screen.dart';
 import 'package:resellapp/ui/screens/account_screen/profile_details_screen.dart';
 import 'package:resellapp/ui/screens/account_screen/profile_info_screen.dart';
 import 'package:resellapp/ui/screens/collection_screen.dart';
+import 'package:resellapp/ui/screens/favourite_screen.dart';
+import 'package:resellapp/ui/screens/for_you_screen.dart';
 import 'package:resellapp/ui/screens/help_screen.dart';
 import 'package:resellapp/ui/screens/orders_screen.dart';
 
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'resell app',
-      home: HelpScreen(),
+      home: ForYouScreen(),
     );
   }
 }

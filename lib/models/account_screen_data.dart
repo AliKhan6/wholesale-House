@@ -1,47 +1,51 @@
+
 import 'package:flutter/material.dart';
+import 'package:resellapp/ui/screens/account_screen/bank_details_screen.dart';
+import 'package:resellapp/ui/screens/collection_screen.dart';
 
 
 class AccountScreenData{
   IconData icon;
+  String image;
   String title;
   Function onPress;
-
-  AccountScreenData({this.icon, this.title,this.onPress});
+  AccountScreenData({this.icon, this.title,this.onPress,this.image});
 }
 
-List<AccountScreenData> accountScreenData = [bankDetails, sharedCatalogs,payments, challenges, lotterySpins, referralCode,
-referEarn, meeshoCredits,messhoCommunity, businessLogo, settings, notifications, rateMeesho];
+List<AccountScreenData> accountScreenData = [bankDetails, sharedCatalogs,payments, challenges, lotterySpins, settings, notifications, rateMeesho];
 
 final AccountScreenData bankDetails = AccountScreenData(
-  icon: Icons.search,
+  image: 'images/band_details.png',
   title: 'My Bank Details',
     onPress: (){
-      print('pressed first');
+      BuildContext context;
+      Navigator.push(context, MaterialPageRoute(builder: (context) => BankDetailsScreen()));
     }
 );
 
 final AccountScreenData sharedCatalogs = AccountScreenData(
     icon: Icons.share,
     title: 'My Shared Catalogs',
-  onPress: (){
-    print('pressed second');
-  }
+    onPress: (){
+      BuildContext context;
+      Navigator.push(context, MaterialPageRoute(builder: (context) => CollectionScreen()));
+    }
 );
 
 final AccountScreenData payments = AccountScreenData(
-    icon: Icons.search,
+    image: 'images/payments.png',
     title: 'My Payments',
     onPress: (){}
 );
 
 final AccountScreenData challenges = AccountScreenData(
-    icon: Icons.share,
+    image: 'images/challenges.png',
     title: 'Challenges',
     onPress: (){}
 );
 
 final AccountScreenData lotterySpins = AccountScreenData(
-    icon: Icons.search,
+    image: 'images/lottery_spins.png',
     title: 'Lottery Spins',
     onPress: (){}
 );
@@ -90,6 +94,6 @@ final AccountScreenData notifications = AccountScreenData(
 
 final AccountScreenData rateMeesho = AccountScreenData(
     icon: Icons.star,
-    title: 'Rate Meesho',
+    title: 'Rate Wholesale house',
     onPress: (){}
 );

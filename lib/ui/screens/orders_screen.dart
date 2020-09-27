@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resellapp/constants/colors.dart';
+import 'package:resellapp/ui/custom_widgets/custom_appbar.dart';
+import 'package:resellapp/ui/custom_widgets/custom_bottom_navigation_bar.dart';
 
 class OrdersScreen extends StatefulWidget {
   @override
@@ -17,32 +19,35 @@ class _OrdersScreenState extends State<OrdersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      appBar:  AppBar(
-        elevation: 2.0,
-        backgroundColor: Colors.white,
-        title: Text('Orders',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600),),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.search,color: Colors.black,),
-              onPressed: (){}
-          ),
-          IconButton(
-              icon: Icon(Icons.shopping_cart,color: Colors.black,),
-              onPressed: (){}
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+
+            ///
+            /// App Bar
+           CustomAppBar(title: 'Orders',lastIcon: Icons.shopping_cart,),
+
+            Container(
+              height: MediaQuery.of(context).size.height * 0.79,
+              child: ListView(
+                children: <Widget>[
+                  ///
+                  /// Upper Half Body
+                  _upperHalfBody(),
+                  SizedBox(height: 12.0,),
+                  ///
+                  /// Lower Half Body
+                  _lowerHalfBody(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-      body: ListView(
-        children: <Widget>[
-          ///
-          /// Upper Half Body
-          _upperHalfBody(),
-          SizedBox(height: 12.0,),
-          ///
-          /// Lower Half Body
-          _lowerHalfBody(),
-        ],
-      ),
+
+      /// Bottom Navigation Bar
+      ///
+      bottomNavigationBar: CustomBottomNavigationBar(index: 2,),
     );
   }
 
@@ -234,17 +239,18 @@ class _OrdersScreenState extends State<OrdersScreen> {
 
         SizedBox(height: 50),
 
-        Icon(Icons.not_listed_location,color: Colors.grey[300],size: 100,),
+        Icon(Icons.not_listed_location,color: Colors.grey[300],size: 120,),
 
         SizedBox(height: 50),
-        Text('NO ORDERS FOUND',style: TextStyle(fontSize: 16,color: Colors.black54),),
+        Text('NO ORDERS FOUND',style: TextStyle(fontSize: 17,color: Colors.black54),),
         SizedBox(height: 10),
         Container(
-          width: MediaQuery.of(context).size.width/2.4,
+          height: 40,
+          width: MediaQuery.of(context).size.width/2.2,
           child: FlatButton(
               color: pinkColor,
               onPressed: (){},
-              child: Text('BROWSE CATALOGS',style: TextStyle(color: Colors.white,fontSize: 12),)),
+              child: Text('BROWSE CATALOGS',style: TextStyle(color: Colors.white,fontSize: 14),)),
         )
       ],
     );
