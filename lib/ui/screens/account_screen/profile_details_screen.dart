@@ -21,7 +21,9 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(icon: Icon(Icons.arrow_back,color: Colors.black,), onPressed: (){},),
+        leading: IconButton(icon: Icon(Icons.arrow_back,color: Colors.black,),
+          onPressed: () => Navigator.pop(context)
+        ),
         title: Text('Profile',style: TextStyle(color: Colors.black),),
         actions: <Widget>[
           FlatButton(
@@ -35,10 +37,12 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
 
           ///
           ///Upper Half Screen
-          _upperHalfScreen(),
+          ///
+          _selectDifferentProfileScreens(),
 
           ///
-          /// Lower Half Screens
+          /// Profile Different Screens Selection
+          /// 
           selectedScreen == 0 ? ReviewsScreen() : selectedScreen == 1 ? VideoScreen() :
           selectedScreen == 2 ?  WishListScreen() : selectedScreen == 3 ? SharedScreen() : ReviewsScreen(),
 
@@ -46,7 +50,7 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
       ),
     );
   }
-  _upperHalfScreen(){
+  _selectDifferentProfileScreens(){
     return  Material(
       elevation: 3.0,
       child: Column(

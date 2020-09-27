@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:resellapp/ui/screens/account_screen/contact_screen.dart';
 import 'package:resellapp/ui/screens/account_screen/personal_screen.dart';
+import 'package:resellapp/ui/screens/account_screen/settings_screen.dart';
+import 'package:resellapp/ui/screens/account_screen/work_education_screen.dart';
 
 class ProfileInfoScreen extends StatefulWidget {
   @override
@@ -31,7 +33,7 @@ class _ProfileInfoScreenState extends State<ProfileInfoScreen> {
                         children: <Widget>[
                           IconButton(
                               icon: Icon(Icons.arrow_back,size: 23,),
-                              onPressed: (){}
+                              onPressed: () => Navigator.pop((context))
                           ),
                           Text('Edit Profile Information',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
                         ],
@@ -82,11 +84,16 @@ class _ProfileInfoScreenState extends State<ProfileInfoScreen> {
               ),
             ),
 
-            /// Contact Screen details
-            selectedScreen == 0 ? ContactScreen() : PersonalScreen(),
+            ///
+            /// Select Different Edit Profile Info Screen Form Horizontal List View
+            ///
+            selectedScreen == 0 ? ContactScreen() : selectedScreen == 1 ? PersonalScreen() :
+            selectedScreen == 2 ? WorkEducationScreen() : selectedScreen == 3 ? SettingsScreen() :
+            ContactScreen(),
 
             /// Save button
-            Container(
+            ///
+            selectedScreen == 3 ? Container() : Container(
               alignment: Alignment.bottomCenter,
               color: Colors.white,
               height: 50,
